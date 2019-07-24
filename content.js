@@ -22,15 +22,24 @@ for (let i = 0; i < elements.length; i++) {
 function matchCase(text, pattern) {
     let result = '';
 
+    let startsWithUpperCase = false
+
     for(let i = 0; i < text.length; i++) {
         let c = text.charAt(i);
         let p = pattern.charCodeAt(i);
 
         if(p >= 65 && p < 65 + 26) {
             result += c.toUpperCase();
+            startsWithUpperCase = true
         } else {
             result += c.toLowerCase();
         }
+    }
+
+    if (startsWithUpperCase) {
+      return `The ${result}`
+    } else {
+      return `the ${result}`
     }
 
     return result;
