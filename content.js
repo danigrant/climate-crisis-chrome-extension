@@ -1,14 +1,14 @@
-var elements = document.getElementsByTagName('*');
+let elements = document.getElementsByTagName('*');
 
-for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
+for (let i = 0; i < elements.length; i++) {
+    let element = elements[i];
 
-    for (var j = 0; j < element.childNodes.length; j++) {
-        var node = element.childNodes[j];
+    for (let j = 0; j < element.childNodes.length; j++) {
+        let node = element.childNodes[j];
 
         if (node.nodeType === 3) {
-            var text = node.nodeValue;
-            var replacedText = text.replace(/climate change/gi, function(match) {
+            let text = node.nodeValue;
+            let replacedText = text.replace(/climate change/gi, function(match) {
                 return matchCase("climate crisis", match);
             });
 
@@ -20,11 +20,11 @@ for (var i = 0; i < elements.length; i++) {
 }
 
 function matchCase(text, pattern) {
-    var result = '';
+    let result = '';
 
-    for(var i = 0; i < text.length; i++) {
-        var c = text.charAt(i);
-        var p = pattern.charCodeAt(i);
+    for(let i = 0; i < text.length; i++) {
+        let c = text.charAt(i);
+        let p = pattern.charCodeAt(i);
 
         if(p >= 65 && p < 65 + 26) {
             result += c.toUpperCase();
