@@ -1,4 +1,6 @@
 window.onload = () => {
+  let replacedText
+
   let elements = document.getElementsByTagName('*');
 
   for (let i = 0; i < elements.length; i++) {
@@ -9,19 +11,26 @@ window.onload = () => {
 
           if (node.nodeType === 3) {
               let text = node.nodeValue;
-              let replacedText = text.replace(/climate change/gi, function(match) {
+              let replacedText1 = text.replace(/climate change/gi, function(match) {
                   return matchCase("climate crisis", match);
               });
 
-              if (replacedText !== text) {
-                  element.replaceChild(document.createTextNode(replacedText), node);
+              let replacedText2 = text.replace(/global warming/gi, function(match) {
+                  return matchCase("global heating", match);
+              });
+
+              if (replacedText1 !== text) {
+                  element.replaceChild(document.createTextNode(replacedText1), node);
+              }
+              if (replacedText2 !== text) {
+                  element.replaceChild(document.createTextNode(replacedText2), node);
               }
           }
       }
   }
 }
 
-function matchCase(text, pattern) {
+let matchCase = (text, pattern) => {
     let result = '';
 
     let startsWithUpperCase = false
@@ -37,5 +46,11 @@ function matchCase(text, pattern) {
         }
     }
 
-    return `${result} 🔥🌏⏳`
+    if (result.includes("climate") || result.includes("Climate")) {
+      console.log();
+      return `${result} 🔥🌏⏳`
+    } else {
+      return `${result}`
+    }
+
 }
