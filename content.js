@@ -46,11 +46,13 @@ let matchCase = (text, pattern) => {
         }
     }
 
-    if (result.includes("climate") || result.includes("Climate")) {
-      console.log();
-      return `${result} 🔥🌏⏳`
-    } else {
-      return `${result}`
-    }
+    // if (result.includes("climate") || result.includes("Climate")) {
+    //   console.log();
+    //   return `${result} 🔥🌏⏳`
+    // } else {
+    //   return `${result}`
+    // }
+
+    return `${result}`
 
 }
