@@ -30,17 +30,10 @@ function matchCase(text, pattern) {
 
         if(p >= 65 && p < 65 + 26) {
             result += c.toUpperCase();
-            startsWithUpperCase = true
         } else {
             result += c.toLowerCase();
         }
     }
 
-    if (startsWithUpperCase) {
-      return `The ${result}`
-    } else {
-      return `the ${result}`
-    }
-
-    return result;
+    return `${result} 🔥🌏⏳`
 }
