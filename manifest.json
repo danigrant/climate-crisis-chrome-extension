@@ -2,7 +2,7 @@
 "manifest_version": 2,
     "name": "Climate Change To Climate Crisis",
     "description": "Changes all instances of climate change to climate crisis.",
-    "version": "1.1",
+    "version": "1.2",
     "content_scripts": [
         {
             "matches": [
