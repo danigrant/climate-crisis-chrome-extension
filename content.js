@@ -1,22 +1,24 @@
-let elements = document.getElementsByTagName('*');
+window.onload = () => {
+  let elements = document.getElementsByTagName('*');
 
-for (let i = 0; i < elements.length; i++) {
-    let element = elements[i];
+  for (let i = 0; i < elements.length; i++) {
+      let element = elements[i];
 
-    for (let j = 0; j < element.childNodes.length; j++) {
-        let node = element.childNodes[j];
+      for (let j = 0; j < element.childNodes.length; j++) {
+          let node = element.childNodes[j];
 
-        if (node.nodeType === 3) {
-            let text = node.nodeValue;
-            let replacedText = text.replace(/climate change/gi, function(match) {
-                return matchCase("climate crisis", match);
-            });
+          if (node.nodeType === 3) {
+              let text = node.nodeValue;
+              let replacedText = text.replace(/climate change/gi, function(match) {
+                  return matchCase("climate crisis", match);
+              });
 
-            if (replacedText !== text) {
-                element.replaceChild(document.createTextNode(replacedText), node);
-            }
-        }
-    }
+              if (replacedText !== text) {
+                  element.replaceChild(document.createTextNode(replacedText), node);
+              }
+          }
+      }
+  }
 }
 
 function matchCase(text, pattern) {
